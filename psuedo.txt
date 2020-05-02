@@ -57,9 +57,9 @@ gives each player ?5? random cards
 
 TO DO:
 
-Player class
-Card Classes
-get Factory working
+Player class --- Done
+Card Classes --- Done
+get Factory working --- Done
 
 get game start function working that distributes cards
 
