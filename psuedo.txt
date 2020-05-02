@@ -1,0 +1,67 @@
+---------------------------
+player class (*2 by default)
+---------------------------
+method to draw card
+
+
+
+
+---------------------------
+-- card class --
+---------------------------
+
+attributes:
+
+# value 
+Color
+
+method to play the card
+
+
+---------------------------
+card factory
+---------------------------
+Types of cards:
+
+numbered cards 0-9
+
+wild card - has every color attribute
+
+draw 4 (adds four cards from the pile array to opponents hand - player chooses current color )
+
+draw two (adds two cards from the pile array to opponents hand  - player chooses current color )
+
+reverse (Order of play array is reverse)
+
+skip (next player in *order of play array* is skipped)
+
+---------------------------
+Game Board 
+---------------------------
+
+current players turn
+
+current card in play
+
+
+---------------------------
+Game start function
+---------------------------
+creates "deck" of random cards
+
+gives each player ?5? random cards
+
+
+
+
+
+TO DO:
+
+Player class
+Card Classes
+get Factory working
+
+get game start function working that distributes cards
+
+
+tbc
