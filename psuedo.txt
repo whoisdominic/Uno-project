@@ -61,7 +61,24 @@ Player class --- Done
 Card Classes --- Done
 get Factory working --- Done
 
-get game start function working that distributes cards
 
 
-tbc
+get game start function working that distributes cards!! --- Done
+
+
+
+Game cards comparison logic
+
+
+
+End turn capability
+
+UI/Design
+
+
+
+
+
+
+
+

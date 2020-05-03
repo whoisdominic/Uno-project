@@ -8,9 +8,9 @@ class Player {
         this.hand = []
     }
     playCard(choice){
-        this.hand[choice].effect()
-        console.log(`${this.name} plays ${this.hand[choice].color}`);
-
+        // console.log(`${this.name} plays ${this.hand[choice]}`);
+        cardInPlay.push(this.hand[choice])
+        // console.log(cardInPlay);
     }
     drawCard(){
         this.hand.push(cardPile.pop())
@@ -189,9 +189,34 @@ const displayCards = (player) => {
         <h2>${player.hand[i].value}</h2>
         <h2>${player.hand[i].type}</h2>
         `)
+        $card.on('click', (event) => {
+            player.playCard([i])
+            player.hand.splice([i], 1)
+            displayCards(playerOrder[0])
+            displayCardsInPlay()
+            // console.log(cardInPlay);
+            // console.log('card in play ^');
+            // console.log(playerOrder[0].hand);
+            // console.log('players hand ^');
+
+        })
         $('.current-hand').append($card)
     }
 }
+
+const displayCardsInPlay = () =>{
+    $('.cards-in-play').children().remove()
+    let inPlayCard = cardInPlay.length -1 
+    console.log(cardInPlay);
+        const $card = $('<div>').addClass(`uno-card ${cardInPlay.color} `).html(`
+        <h3>${cardInPlay[inPlayCard].color}</h3>
+        <h2>${cardInPlay[inPlayCard].value}</h2>
+        <h2>${cardInPlay[inPlayCard].type}</h2>
+        `)
+        
+    $('.cards-in-play').append($card)    
+}
+
 
 const displayStats = () => {
     $('div.flex-one > div').children().remove()
@@ -222,7 +247,7 @@ const $drawButton = $('.draw').on('click', () => {
 
 
 //////////////////////////
-// Game Start & Game Functions
+// Game Functions
 //////////////////////////
 
 /* a function to make all the cards in the deck and distribute them between the
@@ -239,12 +264,18 @@ https://javascript.info/task/shuffle
 */
 
 const rotateActivePlayer = () => {
-    playerOrder.pop(playerOrder.push())
+    let stage = []
+    stage[0] = playerOrder.shift()
+    playerOrder.push(stage.pop())
 }
 
 // start turn function
 
 // end turn function
+
+//////////////////////////
+//  Game Start + calls
+//////////////////////////
 
 
 
@@ -253,6 +284,39 @@ displayStats()
 makeDeck()
 
 shuffle()
+
+
+addPlayer('Dominic')
+addPlayer('Franz')
+
+let hasGameStarted = false
+
+const gameStart = () => {
+    hasGameStarted = true
+    for (let i = 0; i < playerOrder.length; i++) {
+        playerOrder[i].drawCard()
+        playerOrder[i].drawCard()
+        playerOrder[i].drawCard()
+        playerOrder[i].drawCard()
+        playerOrder[i].drawCard()
+    }
+    displayCards(playerOrder[0])
+    displayStats()
+}
+
+$('#game-start').on('click', () => {
+    if (hasGameStarted === false) {
+        gameStart()
+    }
+})
+
+$('#quit').on('click', () => {
+    location.reload()
+})
+
+
+
+
 
 //////////////////////////
 // Notes
@@ -268,9 +332,6 @@ will be called.
 // Gameplay Test Area
 //////////////////////////
 
-
-addPlayer('Dominic')
-addPlayer('Farhana')
 
 
 
