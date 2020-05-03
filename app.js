@@ -170,7 +170,10 @@ const makeDeck = () => {
 // Players 
 //////////////////////////
 
-const dominic = new Player('Dominic');
+const addPlayer = (nameInput) =>{
+    const newPlayer = new Player(`${nameInput}`)
+    playerOrder.push(newPlayer)
+} 
 
 //////////////////////////
 // Game Board
@@ -190,6 +193,17 @@ const displayCards = (player) => {
     }
 }
 
+const displayStats = () => {
+    $('div.flex-one > div').children().remove()
+    for (let i = 0; i < playerOrder.length; i++) {
+        let $playerStats = $('<div>').addClass('stats__player').html(`
+        <h4>Player: ${playerOrder[i].name}</h4>
+        <h4>Cards Remaining: ${playerOrder[i].hand.length}</h4>
+        <br>
+        `)
+        $playerStats.appendTo('div.flex-one > div')
+    }
+}
 //////////////////////////
 // Event Listeners
 //////////////////////////
@@ -197,8 +211,9 @@ const displayCards = (player) => {
 // Draw button
 
 const $drawButton = $('.draw').on('click', () => {
-    dominic.drawCard()
-    displayCards(dominic)
+    playerOrder[0].drawCard()
+    displayCards(playerOrder[0])
+    displayStats()
 })
 
 // im thinking the event listeners for the 
@@ -210,8 +225,6 @@ const $drawButton = $('.draw').on('click', () => {
 // Game Start & Game Functions
 //////////////////////////
 
-makeDeck()
-
 /* a function to make all the cards in the deck and distribute them between the
 players, (will have to have a math randomizer) */
 
@@ -221,9 +234,25 @@ const shuffle = () => {
     cardPile.sort(() => Math.random() - 0.5);
 }
 
+/* I tried to do this shuffle a few diffrerent ways, i found this function that randomizes an array on the interent and modified it.
+https://javascript.info/task/shuffle
+*/
+
+const rotateActivePlayer = () => {
+    playerOrder.pop(playerOrder.push())
+}
+
 // start turn function
 
 // end turn function
+
+
+
+displayStats()
+
+makeDeck()
+
+shuffle()
 
 //////////////////////////
 // Notes
@@ -236,14 +265,18 @@ will be called.
 
 
 //////////////////////////
-// Node Test Area
+// Gameplay Test Area
 //////////////////////////
-shuffle()
 
 
-console.log(dominic);
+addPlayer('Dominic')
+addPlayer('Farhana')
 
-console.log(cardPile);
+
+
+
+
+
 
 // const cardBlue = new Numbered('blue','9','number');
 // const cardRed = new Numbered('red','5','number');
