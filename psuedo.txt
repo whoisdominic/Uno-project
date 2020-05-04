@@ -55,23 +55,59 @@ gives each player ?5? random cards
 
 
 
+-----Uno Project game logic-----
+
+Check if there is any comparison to be made 
+
+First we check for color 
+
+If the colors match or it is wild
+
+Play it
+
+
+next we check for number
+
+If The numbers match
+
+Play it 
+
+If the type is equal to action card && the colors match 
+
+Play it + run the card effect function
+
+
+
+
+
+
 TO DO:
 
 Player class --- Done
 Card Classes --- Done
 get Factory working --- Done
-
-
-
 get game start function working that distributes cards!! --- Done
 
 
 
-Game cards comparison logic
+Game cards comparison logic --- has bug at two action cards. If a blue skip is down
+then it will still allow a red draw two. Bug is due to the 'action' type being the same
+-- Possible fixes--
+adding an additional if statement inside type/action or modifying the logic in the ()
 
 
+
+
+
+
+
+action cards effect functions
 
 End turn capability
+
+win conditions
+
+card regeneration and reshuffle when deck array is empty
 
 UI/Design
 

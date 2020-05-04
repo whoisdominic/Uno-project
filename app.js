@@ -194,15 +194,75 @@ const displayCards = (player) => {
         <h2>${player.hand[i].type}</h2>
         `)
         $card.on('click', (event) => {
+            let compare = cardInPlay.length -1 
 
-
-            player.playCard([i])
-            player.hand.splice([i], 1)
-            displayCards(playerOrder[0])
-            displayCardsInPlay()
-
-
+                // Uno Logic
+            if (cardInPlay[compare] == undefined || NaN) {
+                player.playCard([i])
+                console.log('went at undefined');
+                // barrier
+                player.hand.splice([i], 1)
+                displayCards(playerOrder[0])
+                displayCardsInPlay()
+                // update score
+                displayStats()
+            } else if (cardInPlay[compare].color === player.hand[i].color) {
+                player.playCard([i])
+                console.log('went at color');
+                // barrier
+                player.hand.splice([i], 1)
+                displayCards(playerOrder[0])
+                displayCardsInPlay()
+                // update score
+                displayStats()
+            } else if (cardInPlay[compare].value === player.hand[i].value) {
+                player.playCard([i])
+                console.log('went at value');
+                // barrier
+                player.hand.splice([i], 1)
+                displayCards(playerOrder[0])
+                displayCardsInPlay()
+                // update score
+                displayStats()
+            } else if (cardInPlay[compare].type && player.hand[i].type === 'action'){
+                player.playCard([i])
+                console.log('went at type/action');
+                // barrier
+                player.hand.splice([i], 1)
+                displayCards(playerOrder[0])
+                displayCardsInPlay()
+                // update score
+                displayStats()
+            } else if (player.hand[i].color === 'wild'){
+                player.playCard([i])
+                console.log('went at wild');
+                // barrier
+                player.hand.splice([i], 1)
+                displayCards(playerOrder[0])
+                displayCardsInPlay()
+                // update score
+                displayStats()
+            } else if (cardInPlay[compare].color === 'wild') {
+                player.playCard([i])
+                console.log('went at wild (in play)');
+                // barrier
+                player.hand.splice([i], 1)
+                displayCards(playerOrder[0])
+                displayCardsInPlay()
+                // update score
+                displayStats()
+            }else {
+                console.log('Cant Not Play');
+            }
+            // player.playCard([i])
             
+            // player.hand[i].effect()
+            // cardInPlay[compare].color
+            // After Effects
+
+            // player.hand.splice([i], 1)
+            // displayCards(playerOrder[0])
+            // displayCardsInPlay()
         })
         $('.current-hand').append($card)
     }
