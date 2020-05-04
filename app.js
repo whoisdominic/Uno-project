@@ -60,6 +60,7 @@ class Skip extends Card {
     effect() {
         // skips the next player (changes the player orders)
         console.log('effect call test');
+        rotateActivePlayer()
     }
 }
 
@@ -73,6 +74,7 @@ class Reverse extends Card {
     effect() {
         // reverses the order of the next player to play
         console.log('effect call test');
+        rotateActivePlayer()
     }
 }
 class DrawTw0 extends Card {
@@ -82,11 +84,12 @@ class DrawTw0 extends Card {
         this.color = color 
         this.value = 'Draw Two'
     }
-    effect(target) {
+    effect() {
         // makes target player draw 2
-        console.log('effect call test');
-        let otherPlayer = playerOrder
+        // console.log('effect call test');
+        let otherPlayer = playerOrder[1]
         console.log(otherPlayer); 
+        otherPlayer.drawCard(2)
     }
 }
 class DrawFour extends Card {
@@ -96,9 +99,12 @@ class DrawFour extends Card {
         this.color = 'wild'
         this.value = 'Draw Four'
     }
-    effect(target) {
+    effect() {
         // makes target player draw 2
         console.log('effect call test');
+        let otherPlayer = playerOrder[1]
+        console.log(otherPlayer); 
+        otherPlayer.drawCard(4)
     }
 }
 
@@ -342,6 +348,7 @@ https://javascript.info/task/shuffle
 */
 
 const rotateActivePlayer = () => {
+    checkForW()
     let stage = []
     stage[0] = playerOrder.shift()
     playerOrder.push(stage.pop())
@@ -396,7 +403,16 @@ $('#quit').on('click', () => {
 })
 
 
-
+//////////////////////////
+// Win Condition
+//////////////////////////
+const checkForW = () => {
+    if (playerOrder[0].hand.length === 0){
+        alert(`${playerOrder[0].name} Wins!`)
+    } else if (playerOrder[0].hand.length === 1){
+        alert('UNO!')
+    }
+}
 
 
 //////////////////////////

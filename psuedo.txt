@@ -88,25 +88,28 @@ Card Classes --- Done
 get Factory working --- Done
 get game start function working that distributes cards!! --- Done
 End turn capability --- Done
+win conditions --- Done
+action cards effect functions --- Done
 
 
 
-Game cards comparison logic(90%) --- has bug at two action cards. If a blue skip is down
+
+*Game cards comparison logic(90%) --- has bug at two action cards. If a blue skip is down
 then it will still allow a red draw two. Bug is due to the 'action' type being the same
+
+break point is at type/action 250
 -- Possible fixes--
 adding an additional if statement inside type/action or modifying the logic in the ()
 
 
-action cards effect functions
+*card regeneration and reshuffle when deck array is empty
 
+*Rules alert
 
+*wild color choice -- Possible ways to do it
 
-
-win conditions
-
-card regeneration and reshuffle when deck array is empty
-
-Rules alert
+1. promt the user to choose a new color
+2. use a switch statement to append a new card with just the color 
 
 UI/Design
 
