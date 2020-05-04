@@ -146,7 +146,9 @@ button {
     margin: 1.25rem;
 }
 .logo-art {
-    width: auto;
-    height: auto;
-
+    width: 414px;
+    height: 158px;
+    border-radius: 1.5rem;
+    margin: 0.25rem;
+    margin-left: 5rem;
 }
