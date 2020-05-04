@@ -245,7 +245,7 @@ const displayCards = (player) => {
                 displayStats()
                 // end turn/ rotate
                 rotateActivePlayer()
-            } else if (cardInPlay[compare].type && player.hand[i].type === 'action'){
+            } else if (cardInPlay[compare].type && player.hand[i].type === 'action' && cardInPlay[compare].color === player.hand[i].color){
                 player.playCard([i])
                 console.log('went at type/action');
                 // barrier
@@ -256,28 +256,40 @@ const displayCards = (player) => {
                 displayStats()
                 // end turn/ rotate
                 rotateActivePlayer()
+
             } else if (player.hand[i].color === 'wild'){
                 player.playCard([i])
                 console.log('went at wild');
                 // barrier
                 player.hand.splice([i], 1)
                 displayCards(playerOrder[0])
+                // Wild Prompt
+                wildPrompt()
+                // creates wild prompt card before it displays so it's the last one
                 displayCardsInPlay()
+
                 // update score
                 displayStats()
+
                 // end turn/ rotate
                 rotateActivePlayer()
+
             } else if (cardInPlay[compare].color === 'wild') {
                 player.playCard([i])
                 console.log('went at wild (in play)');
                 // barrier
                 player.hand.splice([i], 1)
                 displayCards(playerOrder[0])
+                // Wild Prompt
+                wildPrompt()
+                // creates wild prompt card before it displays so it's the last one
                 displayCardsInPlay()
                 // update score
                 displayStats()
                 // end turn/ rotate
                 rotateActivePlayer()
+            } else if (cardInPlay[compare].type === 'any' || cardInPlay[compare].value === 'any') {
+
             }else {
                 console.log('Cant Not Play');
             }
@@ -401,6 +413,37 @@ $('#game-start').on('click', () => {
 $('#quit').on('click', () => {
     location.reload()
 })
+
+//////////////////////////
+// Wild Prompt
+//////////////////////////
+
+const wildPrompt = () => {
+    let colorChoice = prompt(`-----Choose Color----- \n\n 1. Blue \n 2. Red \n 3. Yellow \n 4. Green`);
+    switch (colorChoice) {
+        case '1':
+            const colorCardBlue = new Card('blue','any','any');
+            cardInPlay.push(colorCardBlue)
+            break;
+        case '2':
+            const colorCardRed = new Card('red','any','any');
+            cardInPlay.push(colorCardRed)
+                break;
+        case '3':
+            const colorCardYellow = new Card('yellow','any','any');
+            cardInPlay.push(colorCardYellow)
+                break;
+        case '4':
+            const colorCardGreen = new Card('green','any','any');
+            cardInPlay.push(colorCardGreen)
+                break;        
+        default:
+            alert('Please Enter a Number')
+            wildPrompt()
+            break;
+    }
+}
+
 
 
 //////////////////////////
