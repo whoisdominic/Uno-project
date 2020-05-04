@@ -6,17 +6,21 @@
     box-sizing: inherit; }
 
 html {
-    font-size: 10px; }
-
+    font-size: 10px; 
+        background: url(./images/2-02.svg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
 body {
     box-sizing: border-box;
     font-family: 'Lato', sans-serif; 
-    background-color: aquamarine;
 }
 .container {
     height: 100vh;
     width: 100%;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 .flex-one {
     display: flex;
@@ -34,15 +38,16 @@ body {
 .players-stats {
     width: 20%;
     font-size: 2rem;
-    background-color: cornsilk;
+    background-color: rgba(255, 248, 220, 0.658);
     border-radius: 2rem;
     padding: 1rem;
+    margin: 1.25rem;
 }
 .current-hand {
     height: 40vh;
     width: 60%;
     margin: auto;
-    background-color: rgb(206, 255, 251);
+    background-color: #7befb163;
     border-radius: 1.5rem;
     text-align: center;
     justify-self: center;
@@ -56,7 +61,7 @@ body {
     height: 30vh;
     width: 20%;
     margin: auto;
-    background-color: rgb(206, 255, 251);
+    background-color: #7befb18e;
     text-align: center;
     justify-self: center;
     align-self: center; 
@@ -114,7 +119,7 @@ button {
     background-color: rgb(187, 43, 43);
 }
 .yellow {
-    background-color: rgb(235, 235, 0);
+    background-color: rgb(255, 255, 102);
 }
 .green {
     background-color: rgb(57, 145, 57);
@@ -130,10 +135,11 @@ button {
     width: 10vw;
     width: 20%;
     font-size: 2rem;
-    background-color: cornsilk;
+    background-color: rgba(255, 248, 220, 0.575);
     border-radius: 2rem;
     padding: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 1.25rem;
 }
