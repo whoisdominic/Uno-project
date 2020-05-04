@@ -295,7 +295,7 @@ const displayCards = (player) => {
             } else if (cardInPlay[compare].type === 'any' || cardInPlay[compare].value === 'any') {
 
             }else {
-                console.log('Cant Not Play');
+                console.log('Can Not Play');
             }
         })
         $('.current-hand').append($card)
@@ -428,7 +428,7 @@ const wildPrompt = () => {
             cardInPlay.push(colorCardGreen)
                 break;        
         default:
-            alert('Please Enter a Number')
+            alert('Please Enter a Number between 1-4')
             wildPrompt()
             break;
     }
@@ -456,6 +456,18 @@ const addPlayerNames = () => {
     addPlayer(`${playerTwoName}`)
 }
 addPlayerNames()
+
+//////////////////////////
+// Error for empty deck
+//////////////////////////
+
+// if () {
+    
+// }
+
+
+
+
 //////////////////////////
 // End
 //////////////////////////
