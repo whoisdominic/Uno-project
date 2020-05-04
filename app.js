@@ -340,9 +340,11 @@ const displayStats = () => {
 // Draw button
 
 const $drawButton = $('.draw').on('click', () => {
+    if (hasGameStarted === true) {
     playerOrder[0].drawCard(1)
     displayCards(playerOrder[0])
     displayStats()
+    }
 })
 
 //////////////////////////
@@ -390,8 +392,6 @@ makeDeck()
 shuffle()
 
 
-addPlayer('Dominic')
-addPlayer('Franz')
 
 let hasGameStarted = false
 
@@ -457,17 +457,17 @@ const checkForW = () => {
     }
 }
 
-
 //////////////////////////
-// Notes
+//  Play Name Prompts
 //////////////////////////
-/**
-im thinking that when a player plays a card an 'end turn' function runs. then that function will check who is next to play and run a 'start turn' function with the next to play as a parameter
-will be called. 
 
- */
-
-
+const addPlayerNames = () => {
+    const playerOneName = prompt(`-----PlayOne----- \n\n Welcome to Uno Island! \n\n--- What is your name?`)
+    addPlayer(`${playerOneName}`)
+    const playerTwoName = prompt(`-----PlayOne----- \n\n Welcome to Uno Island! \n\n --- What is your name?`)
+    addPlayer(`${playerTwoName}`)
+}
+addPlayerNames()
 //////////////////////////
-// Gameplay Test Area
+// End
 //////////////////////////

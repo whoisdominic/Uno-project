@@ -108,14 +108,12 @@ adding an additional if statement inside type/action or modifying the logic in t
 -_-_- DONE -_-_-
 
 
-
-*card regeneration and reshuffle when deck array is empty
-
 *Rules alert
 
 UI/Design
 
 *BONUS* 
+*card regeneration and reshuffle when deck array is empty
 
 Multiple players
 Player Hand Privacy
