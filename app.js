@@ -215,6 +215,10 @@ const displayCards = (player) => {
             if (cardInPlay[compare] == undefined || NaN) {
                 player.playCard([i])
                 console.log('went at undefined');
+                // wild bug check
+                    if (player.hand[i].color === 'wild') {
+                        wildPrompt()
+                    }
                 // barrier
                 player.hand.splice([i], 1)
                 displayCards(playerOrder[0])
@@ -293,15 +297,6 @@ const displayCards = (player) => {
             }else {
                 console.log('Cant Not Play');
             }
-            // player.playCard([i])
-            
-            // player.hand[i].effect()
-            // cardInPlay[compare].color
-            // After Effects
-
-            // player.hand.splice([i], 1)
-            // displayCards(playerOrder[0])
-            // displayCardsInPlay()
         })
         $('.current-hand').append($card)
     }
@@ -357,7 +352,7 @@ const shuffle = () => {
     cardPile.sort(() => Math.random() - 0.5);
 }
 
-/* I tried to do this shuffle a few diffrerent ways, i found this function that randomizes an array on the interent and modified it.
+/* I tried to do this shuffle a few diffrerent ways, I found this function that randomizes an array on the interent and modified it.
 https://javascript.info/task/shuffle
 */
 
@@ -377,9 +372,6 @@ const displayCurrentPlayer = () => {
     `)
     $displayTurn.appendTo('#whos-turn')
 }
-// start turn function
-
-// end turn function
 
 //////////////////////////
 //  Game Start + calls
@@ -390,8 +382,6 @@ displayStats()
 makeDeck()
 
 shuffle()
-
-
 
 let hasGameStarted = false
 
@@ -443,15 +433,13 @@ const wildPrompt = () => {
             break;
     }
 }
-
-
-
 //////////////////////////
 // Win Condition
 //////////////////////////
 const checkForW = () => {
     if (playerOrder[0].hand.length === 0){
         alert(`${playerOrder[0].name} Wins!`)
+        location.reload()
     } else if (playerOrder[0].hand.length === 1){
         alert('UNO!')
     }
@@ -462,9 +450,9 @@ const checkForW = () => {
 //////////////////////////
 
 const addPlayerNames = () => {
-    const playerOneName = prompt(`-----PlayOne----- \n\n Welcome to Uno Island! \n\n--- What is your name?`)
+    const playerOneName = prompt(`-----PlayerOne----- \n\n Welcome to Uno Island! \n\n--- What is your name?`)
     addPlayer(`${playerOneName}`)
-    const playerTwoName = prompt(`-----PlayOne----- \n\n Welcome to Uno Island! \n\n --- What is your name?`)
+    const playerTwoName = prompt(`-----PlayerTwo----- \n\n Welcome to Uno Island! \n\n --- What is your name?`)
     addPlayer(`${playerTwoName}`)
 }
 addPlayerNames()
