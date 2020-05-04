@@ -272,12 +272,11 @@ const displayCardsInPlay = () =>{
     $('.cards-in-play').children().remove()
     let inPlayCard = cardInPlay.length -1 
     console.log(cardInPlay);
-        const $card = $('<div>').addClass(`uno-card ${cardInPlay.color} `).html(`
+        const $card = $('<div>').addClass(`uno-card ${cardInPlay[inPlayCard].color} `).html(`
         <h3>${cardInPlay[inPlayCard].color}</h3>
         <h2>${cardInPlay[inPlayCard].value}</h2>
         <h2>${cardInPlay[inPlayCard].type}</h2>
         `)
-        
     $('.cards-in-play').append($card)    
 }
 

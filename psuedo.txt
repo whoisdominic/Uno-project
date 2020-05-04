@@ -90,7 +90,7 @@ get game start function working that distributes cards!! --- Done
 
 
 
-Game cards comparison logic --- has bug at two action cards. If a blue skip is down
+Game cards comparison logic(90%) --- has bug at two action cards. If a blue skip is down
 then it will still allow a red draw two. Bug is due to the 'action' type being the same
 -- Possible fixes--
 adding an additional if statement inside type/action or modifying the logic in the ()
