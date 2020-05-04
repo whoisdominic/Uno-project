@@ -11,6 +11,9 @@ class Player {
         // console.log(`${this.name} plays ${this.hand[choice]}`);
         cardInPlay.push(this.hand[choice])
         // console.log(cardInPlay);
+        if (this.hand[choice].type === 'action'){
+            this.hand[choice].effect()
+        }
     }
     drawCard(amount){
         for (let i = 0; i < amount; i++) {
@@ -56,6 +59,7 @@ class Skip extends Card {
     }
     effect() {
         // skips the next player (changes the player orders)
+        console.log('effect call test');
     }
 }
 
@@ -68,6 +72,7 @@ class Reverse extends Card {
     }
     effect() {
         // reverses the order of the next player to play
+        console.log('effect call test');
     }
 }
 class DrawTw0 extends Card {
@@ -79,6 +84,9 @@ class DrawTw0 extends Card {
     }
     effect(target) {
         // makes target player draw 2
+        console.log('effect call test');
+        let otherPlayer = playerOrder
+        console.log(otherPlayer); 
     }
 }
 class DrawFour extends Card {
@@ -90,6 +98,7 @@ class DrawFour extends Card {
     }
     effect(target) {
         // makes target player draw 2
+        console.log('effect call test');
     }
 }
 
@@ -206,6 +215,8 @@ const displayCards = (player) => {
                 displayCardsInPlay()
                 // update score
                 displayStats()
+                // end turn/ rotate
+                rotateActivePlayer()
             } else if (cardInPlay[compare].color === player.hand[i].color) {
                 player.playCard([i])
                 console.log('went at color');
@@ -215,6 +226,8 @@ const displayCards = (player) => {
                 displayCardsInPlay()
                 // update score
                 displayStats()
+                // end turn/ rotate
+                rotateActivePlayer()
             } else if (cardInPlay[compare].value === player.hand[i].value) {
                 player.playCard([i])
                 console.log('went at value');
@@ -224,6 +237,8 @@ const displayCards = (player) => {
                 displayCardsInPlay()
                 // update score
                 displayStats()
+                // end turn/ rotate
+                rotateActivePlayer()
             } else if (cardInPlay[compare].type && player.hand[i].type === 'action'){
                 player.playCard([i])
                 console.log('went at type/action');
@@ -233,6 +248,8 @@ const displayCards = (player) => {
                 displayCardsInPlay()
                 // update score
                 displayStats()
+                // end turn/ rotate
+                rotateActivePlayer()
             } else if (player.hand[i].color === 'wild'){
                 player.playCard([i])
                 console.log('went at wild');
@@ -242,6 +259,8 @@ const displayCards = (player) => {
                 displayCardsInPlay()
                 // update score
                 displayStats()
+                // end turn/ rotate
+                rotateActivePlayer()
             } else if (cardInPlay[compare].color === 'wild') {
                 player.playCard([i])
                 console.log('went at wild (in play)');
@@ -251,6 +270,8 @@ const displayCards = (player) => {
                 displayCardsInPlay()
                 // update score
                 displayStats()
+                // end turn/ rotate
+                rotateActivePlayer()
             }else {
                 console.log('Cant Not Play');
             }
@@ -290,6 +311,8 @@ const displayStats = () => {
         <br>
         `)
         $playerStats.appendTo('div.flex-one > div')
+        // display who's turn it is
+        displayCurrentPlayer()
     }
 }
 //////////////////////////
@@ -322,8 +345,17 @@ const rotateActivePlayer = () => {
     let stage = []
     stage[0] = playerOrder.shift()
     playerOrder.push(stage.pop())
+    displayCurrentPlayer()
+    displayCards(playerOrder[0])
 }
 
+const displayCurrentPlayer = () => {
+    $('#whos-turn').children().remove()
+    let $displayTurn = $('<div>').addClass('current-player').html(`
+    <h3>It's ${playerOrder[0].name}'s turn</h3>
+    `)
+    $displayTurn.appendTo('#whos-turn')
+}
 // start turn function
 
 // end turn function

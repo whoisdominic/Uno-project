@@ -87,6 +87,7 @@ Player class --- Done
 Card Classes --- Done
 get Factory working --- Done
 get game start function working that distributes cards!! --- Done
+End turn capability --- Done
 
 
 
@@ -96,23 +97,24 @@ then it will still allow a red draw two. Bug is due to the 'action' type being t
 adding an additional if statement inside type/action or modifying the logic in the ()
 
 
-
-
-
-
-
 action cards effect functions
 
-End turn capability
+
+
 
 win conditions
 
 card regeneration and reshuffle when deck array is empty
 
+Rules alert
+
 UI/Design
 
+*BONUS* 
 
-
+Multiple players
+Player Hand Privacy
+Rules smooth popout
 
 
 
