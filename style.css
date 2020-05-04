@@ -12,10 +12,12 @@ html {
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+        background-color: transparent;
 }
 body {
     box-sizing: border-box;
-    font-family: 'Lato', sans-serif; 
+    font-family: 'Lato', sans-serif;
+    background-color: transparent;
 }
 .container {
     height: 100vh;
@@ -58,14 +60,14 @@ body {
     flex-wrap: wrap;
 }
 .cards-in-play {
-    height: 30vh;
-    width: 20%;
+    height: 28vh;
+    width: 15vw;
     margin: auto;
     background-color: #7befb18e;
     text-align: center;
     justify-self: center;
     align-self: center; 
-    margin: 5rem;
+    margin: 0rem 2.5rem 2.5rem 2.5rem;
     border-radius: 1rem;
     display: flex;
     justify-content: space-evenly;
@@ -95,8 +97,8 @@ button {
 }
 .uno-card {
     /* test  */
-    height: 200px;
-    width: 150px;
+    height: 175px;
+    width: 125px;
     display: flex;
     background-color: antiquewhite;
     border-radius: 1rem;
@@ -142,4 +144,9 @@ button {
     justify-content: center;
     align-items: center;
     margin: 1.25rem;
+}
+.logo-art {
+    width: auto;
+    height: auto;
+
 }
