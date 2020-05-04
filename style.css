@@ -23,6 +23,8 @@ body {
 }
 .flex-two {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .flex-three {
     display: flex;
@@ -36,7 +38,7 @@ body {
     padding: 1rem;
 }
 .current-hand {
-    height: 20vh;
+    height: 40vh;
     width: 60%;
     margin: auto;
     background-color: rgb(206, 255, 251);
@@ -51,7 +53,7 @@ body {
 }
 .cards-in-play {
     height: 20vh;
-    width: 60%;
+    width: 20%;
     margin: auto;
     background-color: rgb(206, 255, 251);
     text-align: center;
@@ -91,6 +93,7 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin-bottom: 1.25rem;
 }
 .uno-card > h2 {
     font-size: 2rem;

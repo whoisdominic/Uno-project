@@ -12,8 +12,12 @@ class Player {
         cardInPlay.push(this.hand[choice])
         // console.log(cardInPlay);
     }
-    drawCard(){
-        this.hand.push(cardPile.pop())
+    drawCard(amount){
+        for (let i = 0; i < amount; i++) {
+            this.hand.push(cardPile.pop())
+        }
+
+
         console.log(`${this.name} draws a card`);
     }
 }
@@ -190,15 +194,15 @@ const displayCards = (player) => {
         <h2>${player.hand[i].type}</h2>
         `)
         $card.on('click', (event) => {
+
+
             player.playCard([i])
             player.hand.splice([i], 1)
             displayCards(playerOrder[0])
             displayCardsInPlay()
-            // console.log(cardInPlay);
-            // console.log('card in play ^');
-            // console.log(playerOrder[0].hand);
-            // console.log('players hand ^');
 
+
+            
         })
         $('.current-hand').append($card)
     }
@@ -236,22 +240,14 @@ const displayStats = () => {
 // Draw button
 
 const $drawButton = $('.draw').on('click', () => {
-    playerOrder[0].drawCard()
+    playerOrder[0].drawCard(1)
     displayCards(playerOrder[0])
     displayStats()
 })
 
-// im thinking the event listeners for the 
-// cards will be added when they are appended to the DOM
-
-
-
 //////////////////////////
 // Game Functions
 //////////////////////////
-
-/* a function to make all the cards in the deck and distribute them between the
-players, (will have to have a math randomizer) */
 
 const shuffle = () => {
     cardPile.sort(() => Math.random() - 0.5);
@@ -277,8 +273,6 @@ const rotateActivePlayer = () => {
 //  Game Start + calls
 //////////////////////////
 
-
-
 displayStats()
 
 makeDeck()
@@ -294,11 +288,7 @@ let hasGameStarted = false
 const gameStart = () => {
     hasGameStarted = true
     for (let i = 0; i < playerOrder.length; i++) {
-        playerOrder[i].drawCard()
-        playerOrder[i].drawCard()
-        playerOrder[i].drawCard()
-        playerOrder[i].drawCard()
-        playerOrder[i].drawCard()
+        playerOrder[i].drawCard(5)
     }
     displayCards(playerOrder[0])
     displayStats()
@@ -331,30 +321,3 @@ will be called.
 //////////////////////////
 // Gameplay Test Area
 //////////////////////////
-
-
-
-
-
-
-
-
-// const cardBlue = new Numbered('blue','9','number');
-// const cardRed = new Numbered('red','5','number');
-// const cardGreen = new Numbered('green','7','number');
-// const cardYellow = new Numbered('yellow','3','number');
-
-// cardPile.push(cardRed)
-// cardPile.push(cardYellow)
-// cardPile.push(cardBlue)
-// cardPile.push(cardGreen)
-
-// console.log(cardPile);
-
-// console.log(cardPile);
-
-// console.log(cardPile.length);
-// console.log(cardPile);
-// console.log(dominic);
-
-
