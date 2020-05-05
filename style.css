@@ -194,3 +194,51 @@ button {
     margin: 0.25rem;
     margin-left: 5rem;
 }
+
+/* modal */
+
+.modal-bg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s opacity 3s;
+}
+.bg-active {
+    visibility: visible;
+    opacity: 1;
+}
+.modal {
+    position: relative;
+    background-color: cornsilk;
+    height: 70%;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem;
+    border-radius: 1rem;
+}
+.modal > h2 {
+    font-size: 3.5rem;
+}
+.modal > p {
+    font-size: 2rem;
+}
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: 900;
+    font-size: 5rem;
+    margin: 2rem;
+    cursor: pointer;
+}

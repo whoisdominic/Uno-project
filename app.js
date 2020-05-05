@@ -486,6 +486,23 @@ const addPlayerNames = () => {
 addPlayerNames()
 
 //////////////////////////
+// Rules Modal
+//////////////////////////
+
+let modalBtn = document.querySelector('.rules')
+let modalBg = document.querySelector('.modal-bg')
+let modalClose = document.querySelector('.modal-close')
+
+modalBtn.addEventListener('click', () => {
+    modalBg.classList.add('bg-active')
+})
+
+modalClose.addEventListener('click', () => {
+    modalBg.classList.remove('bg-active')
+})
+
+
+//////////////////////////
 // Error for empty deck
 //////////////////////////
 
