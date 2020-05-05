@@ -105,6 +105,7 @@ class DrawFour extends Card {
         let otherPlayer = playerOrder[1]
         console.log(otherPlayer); 
         otherPlayer.drawCard(4)
+        rotateActivePlayer()
     }
 }
 
