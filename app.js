@@ -202,6 +202,16 @@ const addPlayer = (nameInput) =>{
 const displayCards = (player) => {
     // Removes cards first
     $('.current-hand').children().remove()
+    //////////////////////////
+    // Empty deck bug
+    //////////////////////////
+
+    if (cardPile.length < 5){
+        makeDeck()
+        shuffle()
+        console.log('Reload');
+    }
+
     // loops through the players hand & appends their cards to the DOM
     for (let i = 0; i < player.hand.length; i++) {
         const $card = $('<div>').addClass(`uno-card ${player.hand[i].color} `).html(`
@@ -501,14 +511,6 @@ modalBtn.addEventListener('click', () => {
 modalClose.addEventListener('click', () => {
     modalBg.classList.remove('bg-active')
 })
-
-
-//////////////////////////
-// Error for empty deck
-//////////////////////////
-
-
-
 
 
 //////////////////////////
