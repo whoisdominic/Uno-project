@@ -228,9 +228,9 @@ const displayCards = (player) => {
                 // end turn/ rotate
                 rotateActivePlayer()
                 // draws a card to start the next players turn
-                playerOrder[0].drawCard(1)
-                displayStats()
-                displayCards(playerOrder[0])
+                
+                
+                
 
             } else if (cardInPlay[compare].color === player.hand[i].color) {
                 player.playCard([i])
@@ -244,9 +244,9 @@ const displayCards = (player) => {
                 // end turn/ rotate
                 rotateActivePlayer()
                 // draws a card to start the next players turn
-                playerOrder[0].drawCard(1)
-                displayStats()
-                displayCards(playerOrder[0])
+                
+                
+                
 
             } else if (cardInPlay[compare].value === player.hand[i].value) {
                 player.playCard([i])
@@ -260,9 +260,9 @@ const displayCards = (player) => {
                 // end turn/ rotate
                 rotateActivePlayer()
                 // draws a card to start the next players turn
-                playerOrder[0].drawCard(1)
-                displayStats()
-                displayCards(playerOrder[0])
+                
+                
+                
 
             } else if (cardInPlay[compare].type && player.hand[i].type === 'action' && cardInPlay[compare].color === player.hand[i].color){
                 player.playCard([i])
@@ -276,9 +276,9 @@ const displayCards = (player) => {
                 // end turn/ rotate
                 rotateActivePlayer()
                 // draws a card to start the next players turn
-                playerOrder[0].drawCard(1)
-                displayStats()
-                displayCards(playerOrder[0])
+                
+                
+                
 
             } else if (player.hand[i].color === 'wild'){
                 player.playCard([i])
@@ -297,9 +297,9 @@ const displayCards = (player) => {
                 // end turn/ rotate
                 rotateActivePlayer()
                 // draws a card to start the next players turn
-                playerOrder[0].drawCard(1)
-                displayStats()
-                displayCards(playerOrder[0])
+                
+                
+                
 
             } else if (cardInPlay[compare].color === 'wild') {
                 player.playCard([i])
@@ -316,9 +316,9 @@ const displayCards = (player) => {
                 // end turn/ rotate
                 rotateActivePlayer()
                 // draws a card to start the next players turn
-                playerOrder[0].drawCard(1)
-                displayStats()
-                displayCards(playerOrder[0])
+                
+                
+                
 
             } else if (cardInPlay[compare].type === 'any' || cardInPlay[compare].value === 'any') {
 
@@ -489,9 +489,6 @@ addPlayerNames()
 // Error for empty deck
 //////////////////////////
 
-// if () {
-    
-// }
 
 
 
