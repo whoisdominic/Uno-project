@@ -206,7 +206,7 @@ const displayCards = (player) => {
         const $card = $('<div>').addClass(`uno-card ${player.hand[i].color} `).html(`
         <h3>${player.hand[i].color}</h3>
         <h2>${player.hand[i].value}</h2>
-        <h2>${player.hand[i].type}</h2>
+        <h1>${player.hand[i].type}</h1>
         `)
         $card.on('click', (event) => {
             let compare = cardInPlay.length -1 
@@ -337,7 +337,7 @@ const displayCardsInPlay = () =>{
         const $card = $('<div>').addClass(`uno-card ${cardInPlay[inPlayCard].color} `).html(`
         <h3>${cardInPlay[inPlayCard].color}</h3>
         <h2>${cardInPlay[inPlayCard].value}</h2>
-        <h2>${cardInPlay[inPlayCard].type}</h2>
+        <h2 class="hide-in-play">${cardInPlay[inPlayCard].type}</h2>
         `)
     $('.cards-in-play').append($card)    
 }
